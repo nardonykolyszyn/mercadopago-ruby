@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'faraday/request_id'
+require '../active_support/deep_symbolize_keys'
 
 class HttpClient
   def service_url
