@@ -1,14 +1,19 @@
 # frozen_string_literal: true
 
-require '../http_client/http_client'
+require '../base_client'
 
 module MercadoPagoRuby
   module API
-    class Cards < HttpClient
+    class Cards < BaseClient
+
+      # Override parent class method
+      # Place here main base URL
       def service_url
         'https://api.mercadopago.com'
       end
 
+      # GET /v1/customers/:customer_id/cards
+      # It retrieves all cards from a customer
       def retrieve_customer_cards(customer_id)
         response = connection.get customer_cards_endpoint(customer_id) do |req|
           req.params['access_token'] = access_token
