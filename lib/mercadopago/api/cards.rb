@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require '../base_client'
+require_relative '../base_client'
 
-module MercadoPagoRuby
+module MercadoPago
   module API
     class Cards < BaseClient
 
@@ -16,7 +16,7 @@ module MercadoPagoRuby
       # It retrieves all cards from a customer
       def retrieve_customer_cards(customer_id)
         response = connection.get customer_cards_endpoint(customer_id) do |req|
-          req.params['access_token'] = access_token
+          req.params['access_token'] = @access_token
         end
         response = process_response(response)
         OpenStruct.new(success?: true, body: response)
