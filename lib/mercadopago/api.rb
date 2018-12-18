@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'api/cards'
-require 'api/clients'
+require 'mercadopago/api/cards'
+require 'mercadopago/api/clients'
 
 module MercadoPago
   module API
-    include MercadoPago::Cards
-    include MercadoPago::Clients
+    class Cards; end;
+    class Clients; end;
   end
 end
