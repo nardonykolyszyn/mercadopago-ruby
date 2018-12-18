@@ -2,7 +2,7 @@
 
 require 'faraday/request_id'
 require 'faraday_middleware'
-require_relative 'deep_symbolize_keys'
+require 'mercadopago/active_support/deep_symbolize_keys'
 
 module MercadoPago
   class Base
