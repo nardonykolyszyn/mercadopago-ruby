@@ -52,3 +52,5 @@ PS: Even if Symbols are more like
 Robocop's style guide strongly recommends the first way.
 
 Even, in this small project, we need to follow all style guides and good practices. It's not enough that it just works, it's about good practices, strong and scalable architectures.
+
+[Do you want to read more about?](https://bugs.ruby-lang.org/issues/15393#change-75684)
