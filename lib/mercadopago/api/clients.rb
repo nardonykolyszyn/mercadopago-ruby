@@ -12,8 +12,21 @@ module MercadoPago
         'https://api.mercadopago.com'
       end
 
-      def search_customers_by_email(email)
-        response = connection.get(customers_search_endpoint, email: email) do |req|
+      # Argument must be an Hash
+      # request.create_customer(email: 'example@mail.com')
+      def create_customer(payload)
+        response = connection.post(customer_endpoint, payload) do |req|
+          req.params['access_token'] = access_token
+        end
+        response = process_response(response)
+        OpenStruct.new(success?: true, body: response)
+      rescue Faraday::ClientError => exception
+        OpenStruct.new(success?: false, message: 'Los datos no son correctos', details: exception.response[:body].to_s)
+      end
+
+      # Argument must be an Hash
+      def search_customers_by_email(payload)
+        response = connection.get(customers_search_endpoint, payload) do |req|
           req.params['access_token'] = @access_token
         end
         response = process_response(response)
@@ -23,6 +36,10 @@ module MercadoPago
       end
 
       private
+
+      def customer_endpoint
+        '/v1/customers'
+      end
 
       def customers_search_endpoint
         '/v1/customers/search'
