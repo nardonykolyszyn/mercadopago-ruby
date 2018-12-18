@@ -2,11 +2,11 @@
 
 require 'faraday/request_id'
 require 'faraday_middleware'
-require_relative './active_support/deep_symbolize_keys'
+require './active_support/deep_symbolize_keys'
 
 module MercadoPago
   
-  class BaseClient
+  class Base
     using SymbolizeHelper
     def initialize(access_token: '', sandbox: true)
       @access_token = access_token

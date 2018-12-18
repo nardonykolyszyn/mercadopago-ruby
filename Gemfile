@@ -1,4 +1,4 @@
 source "https://rubygems.org"
 
-gem 'faraday'
-gem 'faraday_middleware'
+# Specify your gem's dependencies in mercadopago-ruby.gemspec
+gemspec
