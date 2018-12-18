@@ -4,7 +4,7 @@ module MercadoPago
   class Version
     MAJOR = 0
     MINOR = 10
-    PATCH = 6
+    PATCH = 7
 
     class << self
       # @return [String]
