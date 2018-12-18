@@ -8,6 +8,7 @@
       * Create a customer
       * Search a customer by email
     - [Cards](#cards)
+      * Retrieve
 ------
 
 ## Installation
@@ -25,3 +26,8 @@
     @client.search_customers_by_email(email: 'customer@mail.com')
   ``` 
 ## Cards
+  - Retrieve customer cards
+  ```ruby
+    @client = MercadoPago::API::Cards.new(access_token: ACCESS_TOKEN)
+    @client.retrieve_customer_cards(CUSTOMER_ID)
+  ``` 
