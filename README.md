@@ -25,6 +25,11 @@
     @client = MercadoPago::API::Clients.new(access_token: ACCESS_TOKEN)
     @client.search_customers_by_email(email: 'customer@mail.com')
   ``` 
+  - Create a new customer
+  ```ruby
+    @client = MercadoPago::API::Clients.new(access_token: ACCESS_TOKEN)
+    @client.create_customer(email: 'customer@mail.com')
+  ``` 
 ## Cards
   - Retrieve customer cards
   ```ruby
