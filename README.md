@@ -10,13 +10,13 @@
 ------
 
 ## Installation
-    ```
-      $ gem install mercadopago-ruby
-    ```
+```
+  $ gem install mercadopago-ruby
+```
     
-    ```
-      require 'mercadopago'
-    ```
+```ruby
+  require 'mercadopago'
+```
 ## Clients
   - Get a customer by email
   ```ruby
