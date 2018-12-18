@@ -15,7 +15,6 @@ Gem::Specification.new do |spec|
 
   spec.files = %w(LICENSE.txt README.md Rakefile mercadopago-ruby.gemspec)
   spec.files += Dir.glob('lib/**/*.rb')
-  spec.files += Dir.glob('test/**/*')
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = Dir.glob('test/**/*')
   spec.require_paths = ['lib']

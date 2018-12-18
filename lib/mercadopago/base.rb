@@ -2,10 +2,9 @@
 
 require 'faraday/request_id'
 require 'faraday_middleware'
-require './active_support/deep_symbolize_keys'
+require_relative 'deep_symbolize_keys'
 
 module MercadoPago
-  
   class Base
     using SymbolizeHelper
     def initialize(access_token: '', sandbox: true)
@@ -18,7 +17,7 @@ module MercadoPago
     end
 
     private
-    
+
     def connection
       @connection ||= Faraday.new(service_url) do |config|
         config.request :json
@@ -44,5 +43,4 @@ module MercadoPago
       end
     end
   end
-
 end

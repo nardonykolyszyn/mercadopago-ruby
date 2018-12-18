@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mercadopago-ruby (0.10.0)
+    mercadopago-ruby (0.10.6)
       faraday (~> 0.9.0)
       faraday_middleware
       json
