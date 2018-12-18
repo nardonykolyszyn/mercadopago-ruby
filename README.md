@@ -1,4 +1,5 @@
 # Mercado Pago Gem
+[![Gem Version](https://badge.fury.io/rb/mercadopago-ruby.svg)](https://badge.fury.io/rb/mercadopago-ruby)
 -----
 ## Index
   - [Installation](#installation)
