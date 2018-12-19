@@ -26,7 +26,17 @@ module MercadoPago
       # Argument must be an Hash
       def search_customers_by_email(payload)
         response = connection.get(customers_search_endpoint, payload) do |req|
-          req.params['access_token'] = @access_token
+          req.params['access_token'] = access_token
+        end
+        response = process_response(response)
+        OpenStruct.new(success?: true, body: response)
+      rescue Faraday::ClientError => exception
+        OpenStruct.new(success?: false, message: 'Bad request', details: exception.response[:body].to_s)
+      end
+
+      def search_by(criteria={})
+        response = connection.get(customers_search_endpoint, criteria) do |req|
+          req.params['access_token'] = access_token
         end
         response = process_response(response)
         OpenStruct.new(success?: true, body: response)
