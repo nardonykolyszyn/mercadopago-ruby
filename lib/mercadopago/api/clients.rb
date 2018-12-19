@@ -44,7 +44,31 @@ module MercadoPago
         OpenStruct.new(success?: false, message: 'Bad request', details: exception.response[:body].to_s)
       end
 
+      def update_customer(customer_id, payload)
+        response = connection.put(customer_id_endpoint(customer_id), payload) do |req|
+          req.params['access_token'] = access_token
+        end
+        response = process_response(response)
+        OpenStruct.new(success?: true, body: response)
+      rescue Faraday::ClientError => exception
+        OpenStruct.new(success?: false, message: 'Bad request', details: exception.response[:body].to_s)
+      end
+
+      def remove_customer(customer_id)
+        response = connection.delete(customer_id_endpoint(customer_id)) do |req|
+          req.params['access_token'] = access_token
+        end
+        response = process_response(response)
+        OpenStruct.new(success?: true, body: response)
+      rescue Faraday::ClientError => exception
+        OpenStruct.new(success?: false, message: 'Bad request', details: exception.response[:body].to_s)
+      end
+
       private
+
+      def customer_id_endpoint(customer_id)
+        "/v1/customers/#{customer_id}"
+      end
 
       def customer_endpoint
         '/v1/customers'
