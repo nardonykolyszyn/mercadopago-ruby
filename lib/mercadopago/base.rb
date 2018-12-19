@@ -7,6 +7,8 @@ require 'mercadopago/active_support/deep_symbolize_keys'
 module MercadoPago
   class Base
     using SymbolizeHelper
+    attr_reader :access_token
+    
     def initialize(access_token: '', sandbox: true)
       @access_token = access_token
       @sandbox = sandbox
