@@ -5,8 +5,11 @@
   - [Installation](#installation)
   * API end-points
     - [Clients](#clients)
-      * Create a customer
       * Search a customer by email
+      * Search a customer by any criteria
+      * Create a customer
+      * Remove customer
+      * Update customer
     - [Cards](#cards)
       * Retrieve
 ------
@@ -25,11 +28,25 @@
     @client = MercadoPago::API::Clients.new(access_token: ACCESS_TOKEN)
     @client.search_customers_by_email(email: 'customer@mail.com')
   ``` 
+  - Get a customer by any criteria
+  ```ruby
+    @client.search_by(first_name: 'Peter Khaule')
+  ``` 
   - Create a new customer
   ```ruby
-    @client = MercadoPago::API::Clients.new(access_token: ACCESS_TOKEN)
     @client.create_customer(email: 'customer@mail.com')
   ``` 
+  - Remove customer
+  ```ruby
+    @client.remove_customer(CUSTOMER_ID)
+  ```
+  - Update customer
+   ```ruby
+    payload = {
+      first_name: 'Peter Khaule'
+    }
+    @client.update_customer(CUSTOMER_ID, payload)
+   ```
 ## Cards
   - Retrieve customer cards
   ```ruby
