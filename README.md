@@ -27,7 +27,7 @@
   - Get a customer by email
   ```ruby
     @client = MercadoPago::API::Clients.new(access_token: ACCESS_TOKEN)
-    @client.search_customers_by_email(email: 'customer@mail.com')
+    @client.search_customers_by_email('customer@mail.com')
   ``` 
   - Get a customer by any criteria
   ```ruby
