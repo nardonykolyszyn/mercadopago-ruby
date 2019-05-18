@@ -24,8 +24,8 @@ module MercadoPago
       end
 
       # Argument must be an Hash
-      def search_customers_by_email(payload)
-        response = connection.get(customers_search_endpoint, payload) do |req|
+      def search_customers_by_email(email)
+        response = connection.get(customers_search_endpoint, email: email) do |req|
           req.params['access_token'] = access_token
         end
         response = process_response(response)
