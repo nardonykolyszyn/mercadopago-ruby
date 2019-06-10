@@ -51,7 +51,7 @@
 ## Cards
   Mercado Pago provides credit cards to being used in the sandbox environment. [See list](https://www.mercadopago.com.ar/developers/es/solutions/payments/custom-checkout/test-cards/)
   - Adding a new card
-    Cards should be added using the official Mercado Pago's JS SDK, because risky data should not go through our Backend side, intead, Mercado Pago will return a **card_token** attribute which you can be used to add a new card to an existing customer.
+    Cards should be added using the official Mercado Pago's JS SDK, because risky data should not go through our Backend side, instead, Mercado Pago will return a **card_token** attribute which you can be used to add a new card to an existing customer.
     [How to create a new card](https://www.mercadopago.com.br/developers/en/solutions/payments/custom-checkout/charge-with-creditcard/javascript/)
   - Add a card to an existing customer
      Once you have your **card_token** and you **customer_id** you can associate both, in this way adding a card to an existing customer.
