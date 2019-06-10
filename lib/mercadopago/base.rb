@@ -3,9 +3,11 @@
 require 'faraday/request_id'
 require 'faraday_middleware'
 require 'mercadopago/active_support/deep_symbolize_keys'
+require 'singleton'
 
 module MercadoPago
   class Base
+    include Singleton
     using SymbolizeHelper
     attr_reader :access_token
     
